@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace PhotoBook.Utilities
 {
     interface IImageStorage
     {
-        void SaveImage(HttpPostedFileBase postedFile);
+        void SaveImage(HttpPostedFileBase MyFile, string DirectorytoSave, string filename);
+
     }
 }

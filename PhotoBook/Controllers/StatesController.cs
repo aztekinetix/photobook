@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using PhotoBook.DBContexts;
 using PhotoBook.Entities;
@@ -29,7 +25,8 @@ namespace PhotoBook.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            State state = db.States.Find(id);
+            State state = db.States.Include(x => x.Country).First(x => x.StateId == id);
+            
             if (state == null)
             {
                 return HttpNotFound();

@@ -200,12 +200,14 @@
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="DBContexts\PhotoBookContext.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\PublisherPic.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\State.cs" />
+    <Compile Include="Exceptions\NonValidFileExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,6 +236,10 @@
     <Compile Include="Migrations\201701182206441_AddingCountryandStateIdsToPublisher.Designer.cs">
       <DependentUpon>201701182206441_AddingCountryandStateIdsToPublisher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701182219492_ModifyingStateName.cs" />
+    <Compile Include="Migrations\201701182219492_ModifyingStateName.Designer.cs">
+      <DependentUpon>201701182219492_ModifyingStateName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -259,6 +265,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\default-no-image.jpg" />
     <Content Include="images\smile.jpg" />
     <Content Include="Content\Theme1\bootswatch.less" />
     <Content Include="Content\Theme1\variables.less" />
@@ -340,6 +347,12 @@
     <Content Include="Views\States\Details.cshtml" />
     <Content Include="Views\States\Edit.cshtml" />
     <Content Include="Views\States\Index.cshtml" />
+    <Content Include="Views\Publishers\Create.cshtml" />
+    <Content Include="Views\Publishers\Delete.cshtml" />
+    <Content Include="Views\Publishers\Details.cshtml" />
+    <Content Include="Views\Publishers\Edit.cshtml" />
+    <Content Include="Views\Publishers\Index.cshtml" />
+    <Content Include="Views\Publishers\AddProfileImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -369,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701182206441_AddingCountryandStateIdsToPublisher.resx">
       <DependentUpon>201701182206441_AddingCountryandStateIdsToPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701182219492_ModifyingStateName.resx">
+      <DependentUpon>201701182219492_ModifyingStateName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

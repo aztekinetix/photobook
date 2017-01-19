@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "AddProfileImage";
+}
+
+<h2>Add or change the current profile image of a publisher</h2>
+
+@using (Html.BeginForm()) { 
+
+<div class="form-horizontal">
+    <div class="form-group">
+            @Html.Label("Select an image to upload:", htmlAttributes: new { @class = "control-label col-md-4" })
+        <div class="col-md-4">
+            <input type="file" id="profileImage" title="Select an image" />
+
+        </div>  
+        <div>
+            <input type="submit" title="Submit" / > 
+        
+        </div>
+
+</div>
+}

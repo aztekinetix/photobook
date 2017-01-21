@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
+using PhotoBook.Utilities;
 
 namespace PhotoBook.Infrastructure
 {
@@ -19,7 +20,7 @@ namespace PhotoBook.Infrastructure
 
         private void AddBindings()
         {
-            return;
+            kernel.Bind<IImageStorage>().To<ImageManager>();
         }
 
         public object GetService(Type serviceType)

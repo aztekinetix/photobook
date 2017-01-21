@@ -24,6 +24,8 @@ namespace PhotoBook.Entities
         public  string Telephone { get; set; }
         [Required]
         public  string Email { get; set; }
+        public string TwitterAccount { get; set; }
+        public string Facebook { get; set; }
         public string ProfileImageUrl { get; set; }
         public decimal PricePerService { get; set; }
         public string DescriptionService { get; set; } //this is where people will add their texts

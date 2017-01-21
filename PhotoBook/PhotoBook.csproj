@@ -48,6 +48,14 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -240,6 +248,18 @@
     <Compile Include="Migrations\201701182219492_ModifyingStateName.Designer.cs">
       <DependentUpon>201701182219492_ModifyingStateName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701192337148_AddingTwitterandFacebooktoPublisher.cs" />
+    <Compile Include="Migrations\201701192337148_AddingTwitterandFacebooktoPublisher.Designer.cs">
+      <DependentUpon>201701192337148_AddingTwitterandFacebooktoPublisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701212122552_AddingIndexToPublisherPicsforImageUrl.cs" />
+    <Compile Include="Migrations\201701212122552_AddingIndexToPublisherPicsforImageUrl.Designer.cs">
+      <DependentUpon>201701212122552_AddingIndexToPublisherPicsforImageUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701212143362_RemovingIndexToPublisherPicsforImageUrl.cs" />
+    <Compile Include="Migrations\201701212143362_RemovingIndexToPublisherPicsforImageUrl.Designer.cs">
+      <DependentUpon>201701212143362_RemovingIndexToPublisherPicsforImageUrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -266,6 +286,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\default-no-image.jpg" />
+    <Content Include="images\profiles\default-no-image.jpg" />
     <Content Include="images\smile.jpg" />
     <Content Include="Content\Theme1\bootswatch.less" />
     <Content Include="Content\Theme1\variables.less" />
@@ -297,6 +318,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="ReadMe.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -353,10 +375,11 @@
     <Content Include="Views\Publishers\Edit.cshtml" />
     <Content Include="Views\Publishers\Index.cshtml" />
     <Content Include="Views\Publishers\AddProfileImage.cshtml" />
+    <Content Include="Views\Publishers\AddCatalogImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Catalog\" />
+    <Folder Include="images\catalogs\5\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -385,6 +408,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701182219492_ModifyingStateName.resx">
       <DependentUpon>201701182219492_ModifyingStateName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701192337148_AddingTwitterandFacebooktoPublisher.resx">
+      <DependentUpon>201701192337148_AddingTwitterandFacebooktoPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212122552_AddingIndexToPublisherPicsforImageUrl.resx">
+      <DependentUpon>201701212122552_AddingIndexToPublisherPicsforImageUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212143362_RemovingIndexToPublisherPicsforImageUrl.resx">
+      <DependentUpon>201701212143362_RemovingIndexToPublisherPicsforImageUrl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

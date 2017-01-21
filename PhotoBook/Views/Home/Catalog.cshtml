@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<PhotoBook.Entities.Publisher>
 @{
     ViewBag.Title = "Catalog";
 }
@@ -47,17 +47,18 @@
 </div>*@
 
 <main class="gallery">
-    <a href="/Home/Index">
+    @foreach(var item in Model) { 
+    <a href="#">
         <figure class="individual">
-            <img alt="photoImage" src="~/images/smile.jpg">
+            <img alt="@item.Name" src="@System.Configuration.ConfigurationManager.AppSettings["PublishersImagesDirectory"]@item.ProfileImageUrl">
             <figcaption>
-                Text 1<br>
-                <span>Text 2</span>
+                @item.Name<br>
+                <span>@item.Email</span>
             </figcaption>
         </figure>
     </a>
-
-    <figure class="individual">
+    }
+    @*<figure class="individual">
         <img alt="photoImage" src="~/images/smile.jpg">
         <figcaption>
             Text 1<br>
@@ -93,7 +94,7 @@
             Text 1<br>
             <span>Text 2</span>
         </figcaption>
-    </figure>
+    </figure>*@
 
 </main>
 

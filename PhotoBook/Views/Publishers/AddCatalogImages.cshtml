@@ -1,0 +1,48 @@
+﻿@model PhotoBook.Entities.Publisher
+
+@{
+    ViewBag.Title = "AddCatalogImages";
+}
+
+<h2>Add Catalog Images for Publisher @Model.Name</h2>
+<div>@Html.ValidationMessage("Exceptions", new { @class = "text-danger" })</div>
+<section>
+    @using (Html.BeginForm("AddCatalogImages", "Publishers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(x => x.PublisherId)
+        <div id="multiple">
+            <input type="file" class="multiple" name="files" multiple />
+        </div>
+        <div id="single">
+            <input type="file" class="single" name="files" /><br />
+            <input type="file" class="single" name="files" /><br />
+            <input type="file" class="single" name="files" /><br />
+        </div>
+        <button class="btn btn-default">Upload</button>
+    }
+    <ul>
+        @if (ViewBag.fileNames != null)
+        {
+            foreach (var filename in (List<string>)ViewBag.fileNames)
+            {
+                <li>@filename</li>
+            }
+        }
+    </ul>
+</section>
+@section Scripts{
+    <script type="text/javascript">
+        $(function ()
+        {
+            if (window.FileReader != null)
+            {
+                $('#single').hide();
+                $('.single').prop('disabled', true);
+            } else
+            {
+                $('#multiple').hide();
+                $('.multiple').prop('disabled', true);
+            }
+        });
+    </script>
+}

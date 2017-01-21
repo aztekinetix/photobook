@@ -8,9 +8,9 @@ using System.Web;
 
 namespace PhotoBook.Utilities
 {
-    interface IImageStorage
+    public interface IImageStorage
     {
-        void SaveImage(HttpPostedFileBase MyFile, string DirectorytoSave, string filename);
+        void SaveImage(HttpPostedFileBase MyFile, string DirectorytoSave, string filename, bool AddExtension=true);
 
     }
 }

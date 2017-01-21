@@ -64,18 +64,20 @@
         </td>*@
         <td>
            @{ 
-               var imagePath="";
+               var imageName="";
                if (item.ProfileImageUrl != null)
                {
-                   imagePath = item.ProfileImageUrl;
+                   imageName = item.ProfileImageUrl;
                }
                else
                {
-                   imagePath = "/images/default-no-image.jpg";
+                   imageName = "default-no-image.jpg";
 
                }
            }
-            <img class="profileImage" src="@imagePath" id=@item.PublisherId />
+            <a href="@Url.Action("AddProfileImage",new {id=item.PublisherId })">
+                <img class="profileImage" src="@System.Configuration.ConfigurationManager.AppSettings["PublishersImagesDirectory"]@imageName" id=@item.PublisherId />
+            </a>
         
         </td>
         <td>

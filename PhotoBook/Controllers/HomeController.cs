@@ -10,33 +10,21 @@ namespace PhotoBook.Controllers
 {
     public class HomeController : Controller
     {
+        private PhotoBookContext db = new PhotoBookContext();
+
         public ActionResult Index()
         {
-            //using (PhotoBookContext ctx = new PhotoBookContext())
-            //{
-            //    ctx.Publishers.Add(
-            //        new Publisher
-            //        {
-            //            Name = "Daniel",
-            //            IdNumber = "124udhurf",
-            //            Address = "Oter 123213",
-            //            Email = "dannie@coms.com",
-            //            IdImageUrl = "Alpha",
-            //            StateId = 1,
-            //            Telephone = "57000123123"
-
-            //        }
-            //    );
-            //    ctx.SaveChanges();
-            //}
+          
 
             return View();
         }
         public ActionResult Catalog()
         {
+            var AllPublishersActive = db.Publishers.Where(x=>x.IsActive==true).OrderBy(x => x.State.Name);
+
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View(AllPublishersActive);
         }
 
         public ActionResult About()

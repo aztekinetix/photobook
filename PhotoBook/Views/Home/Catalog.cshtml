@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Catalog";
 }
-@*<link href="~/Content/gallery.css" rel="stylesheet" />*@
+
 <link href="~/Content/gallery2.css" rel="stylesheet" />
 
  
@@ -21,34 +21,11 @@
 <center><h2>Select a photographer to see their current work.</h2></center>
 
 
-@*<div class="gallery">
-    <a tabindex="1" href="/Home/Index" data-name="MegaRed"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"John McPherson"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
 
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <a tabindex="1"><img src="~/images/smile.jpg"></a>
-    <span class="closed">+</span>
-    <span class="closed-layer"></span>
-
-</div>*@
 
 <main class="gallery">
     @foreach(var item in Model) { 
-    <a href="#">
+    <a href="@Url.Action("GetPublisherPublicProfile", new {id=item.PublisherId })">
         <figure class="individual">
             <img alt="@item.Name" src="@System.Configuration.ConfigurationManager.AppSettings["PublishersImagesDirectory"]@item.ProfileImageUrl">
             <figcaption>
@@ -58,43 +35,7 @@
         </figure>
     </a>
     }
-    @*<figure class="individual">
-        <img alt="photoImage" src="~/images/smile.jpg">
-        <figcaption>
-            Text 1<br>
-            <span>Text 2</span>
-        </figcaption>
-    </figure>
-
-    <figure class="individual">
-        <img alt="photoImage" src="~/images/smile.jpg">
-        <figcaption>
-            Text 1<br>
-            <span>Text 2</span>
-        </figcaption>
-    </figure>
-
-    <figure class="individual">
-        <img alt="photoImage" src="~/images/smile.jpg" >
-        <figcaption>
-            Text 1<br>
-            <span>Text 2</span>
-        </figcaption>
-    </figure>
-    <figure class="individual">
-        <img alt="photoImage" src="~/images/smile.jpg">
-        <figcaption>
-            Text 1<br>
-            <span>Text 2</span>
-        </figcaption>
-    </figure>
-    <figure class="individual">
-        <img alt="photoImage" src="~/images/smile.jpg">
-        <figcaption>
-            Text 1<br>
-            <span>Text 2</span>
-        </figcaption>
-    </figure>*@
+   
 
 </main>
 

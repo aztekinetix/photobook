@@ -19,6 +19,7 @@ namespace PhotoBook.DBContexts
         public DbSet<PublisherPic> PublisherPics { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

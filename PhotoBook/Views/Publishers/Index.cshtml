@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PhotoBook.Entities.Publisher>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List of Publishers";
 }
 
 <h2>Index</h2>
@@ -11,27 +11,14 @@
 </p>
 <table class="table">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Country.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State.Name)
-        </th>*@
+       
         <th>
             Profile Image
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.IdNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdImageUrl)
-        </th>*@
-        @*<th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>*@
+       
         <th>
             @Html.DisplayNameFor(model => model.Telephone)
         </th>
@@ -41,12 +28,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ProfileImageUrl)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.PricePerService)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DescriptionService)
-        </th>*@
+       
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
         </th>
@@ -56,12 +38,7 @@
 @foreach (var item in Model)
 {
     <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Country.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State.Name)
-        </td>*@
+       
         <td>
            @{ 
                var imageName="";
@@ -83,15 +60,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.IdNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdImageUrl)
-        </td>*@
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>*@
+       
         <td>
             @Html.DisplayFor(modelItem => item.Telephone)
         </td>

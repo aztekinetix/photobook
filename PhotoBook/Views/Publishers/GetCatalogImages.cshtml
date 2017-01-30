@@ -1,0 +1,24 @@
+﻿@model IEnumerable<PhotoBook.Entities.PublisherPic>
+
+@{ Layout = null;
+    //var Role = "admin"; //remove before going in production
+    //var urlPic = "#";
+  }
+<link href="~/Content/gallery.css" rel="stylesheet" />
+<div class="gallery">
+    @foreach (var publisherPic in Model)
+    {
+        //if (Role == "admin")
+        //{
+        //    urlPic = Url.Action("RemoveCatalogImage", new { picId=publisherPic.PublisherPicId});
+        //}
+        <a href="#">
+            <figure>
+
+                <img src="@System.Configuration.ConfigurationManager.AppSettings["PublishersCatalogsDirectory"]/@publisherPic.PublisherId/@publisherPic.ImageUrl" width="200" height="170" />
+                <figcaption></figcaption>
+            </figure>
+        </a>
+
+    } 
+</div>

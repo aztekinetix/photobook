@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html dir="ltr" style="" class=" js no-touch svg inlinesvg svgclippaths no-ie8compat js no-touch svg inlinesvg svgclippaths no-ie8compat"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script type="text/javascript" src="instructions%20Archivos/9edb043da4"></script><script src="instructions%20Archivos/nr-1016.js"></script><script async="" src="instructions%20Archivos/analytics.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"9edb043da4","applicationID":"1729965","transactionName":"eldYFkBWDlhWQBcWBlFdUhdeUAxTHFNIFQpQVkIPV1cWG1pcSxEXTFtCC11XEQ==","queueTime":0,"applicationTime":328,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="instructions%20Archivos/application_ltr-54b541ca9233309006395dbc183a02fc.css" media="screen" rel="stylesheet">
+<link href="instructions%20Archivos/red_panda_ltr-f6f91f912c244dc64b727cd836c1567f.css" media="screen" rel="stylesheet">
+<link href="instructions%20Archivos/print-75d737e449bcdafe0aaefbec1c3c32dc.css" media="print" rel="stylesheet">
+<!--[if IE 7]>
+<link href="/assets/IE7only-ef4b023d74e2d9ee20e4e13aaba07832.css" media="screen" rel="stylesheet" />
+<![endif]-->
+<!--[if IE 8]>
+<link href="/assets/IE8only-2c504f2ea1b03d7339491dd264c81e1b.css" media="screen" rel="stylesheet" />
+<![endif]-->
+<!--[if IE 9]>
+<link href="/assets/IE9only-20bb95c4814fdc1be29e70e4406cda2d.css" media="screen" rel="stylesheet" />
+<![endif]-->
+<script src="instructions%20Archivos/application-a8e0e90aba89f92b9533152d9fb7be01.js"></script><style></style>
+<meta content="authenticity_token" name="csrf-param">
+<meta content="U1ckhcBDr8bCWINtifL7nCg1uzCp9btlq9G7fvnhaa8=" name="csrf-token">
+
+</head>
+<body class="appointment instructions niv" data-disable-with-content="Por favor, espere.">
+<div id="wrap">
+<div id="contentContainer">
+<div class="globalBackground">
+<nav class="row globalNav">
+<div class="six columns">
+<h1>
+Mexico
+</h1>
+<h2>
+Official U.S. Department of State Visa Appointment Service
+</h2>
+</div>
+<div class="six columns end">
+<ul class="nav-bar">
+<li class="visa-type-indicator">
+Non Immigrant Visa
+</li>
+<li>
+<a href="https://ais.usvisa-info.com/es-mx/niv/account">Inicio</a>
+</li>
+<li>
+</li>
+<li>
+<div class="red_panda">
+<div class="mainContent">
+<div class="button small dropdown right radius" href="#">
+Acciones
+<ul class="right-pop dropdown-menu no-hover" style="top: 29px;">
+<li>
+<a href="https://ais.usvisa-info.com/es-mx/niv/account/settings">Configuración de la cuenta</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="https://ais.usvisa-info.com/es-mx/niv/users/sign_out">Finalizar sesión</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+
+</div>
+
+
+<div class="div">
+<div id="modal">
+<div class="loader">
+&nbsp;
+</div>
+<div class="content">
+
+</div>
+</div>
+<div>
+<div class="subTitleBackground">
+<div class="row subTitle">
+<div class="twelve column">
+<div class="text">Confirmación e Instrucciones</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="mainContent">
+<div class="twelve column">
+<div id="wizardBanner">
+<ul>
+<li class="stepDone">
+<h1>1</h1>
+Información del solicitante
+</li>
+<li class="stepDone">
+<h1>2</h1>
+Servicio de mensajería
+</li>
+<li class="stepDone">
+<h1>3</h1>
+Pago
+</li>
+<li class="stepDone">
+<h1>4</h1>
+Programar
+</li>
+<li class="stepOn">
+<h1>5</h1>
+Instrucciones
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="mainContent">
+<div class="twelve column appointment_instructions">
+<div class="floatRight row">
+<div class="helpTopRight">
+<a class="printButton" href="javascript:void(0)" onclick="window.print();">Imprimir</a>
+</div>
+</div>
+<p>
+</p><h1>Instrucciones CSRA/Visa para no inmigrante del Departamento de Estado de los EE. UU.</h1>
+<p></p>
+<p>
+Por favor, lea estas instrucciones en su totalidad. No cumplirlas podría
+ demorar la aprobación de su solicitud de Visa para no inmigrante de EE.
+ UU.
+</p>
+<p>
+</p>
+<p>
+</p>
+<p>
+Usted ha programado una cita en el Centro de Atención al Solicitante 
+(CAS) para&nbsp;entregar sus documentos, capturar&nbsp;sus huellas 
+dactilares y toma de&nbsp;fotografí­a digital. Por favor, reúna los 
+documentos que se enumeran abajo&nbsp;y llevelos&nbsp;con usted a su 
+cita.<br><br>Los documentos serán enviados a la Sección Consular para su
+ revisión. La Sección Consular se reserva el derecho de requerir una 
+entrevista en persona.
+</p>
+<div class="instructions_body_applicant">
+<hr>
+<h1>Instrucciones para la solicitud de Visa</h1>
+<div>
+<table class="appointment_instructions_applicants">
+<tbody><tr>
+<td class="heading">
+<strong>Nombre del solicitante</strong>
+</td>
+<td>
+<strong>DANIEL OCTAVIO RUIZ RODRIGUEZ</strong>
+</td>
+</tr>
+<tr>
+<td class="heading">
+<strong>Clase de Visa</strong>
+</td>
+<td>B1/B2 Negocios y turismo (visitante temporal)</td>
+</tr>
+<tr>
+<td class="heading">
+<strong>Número DS-160</strong>
+</td>
+<td>AA006KHELI</td>
+</tr>
+<tr>
+<td class="heading">
+<strong>Número de pasaporte</strong>
+</td>
+<td>G15758820</td>
+</tr>
+<tr>
+<td class="heading">
+<strong>Destino</strong>
+</td>
+<td>Mexico City ASC</td>
+</tr>
+<tr>
+<td class="heading">
+<strong>Número DS-160</strong>
+</td>
+<td>
+<img alt="Aa006kheli?visa type=niv" src="instructions%20Archivos/AA006KHELI.png">
+<br>
+AA006KHELI
+</td>
+</tr>
+<tr>
+<td class="heading">
+<strong>Número de pasaporte</strong>
+</td>
+<td>
+<img alt="G15758820?visa type=niv" src="instructions%20Archivos/G15758820.png">
+<br>
+G15758820
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<p>Usted debe comparecer&nbsp;en persona en el Centro de Atención al 
+Solicitante (CAS) para que le tomen&nbsp;las huellas dactilares y la 
+fotografí­a digital. Por favor lleve su pasaporte y la página de 
+confirmacián DS-160 a su cita en el CAS.</p>
+<p>Favor de no acudir a su cita en el Centro de Atención a Solicitantes 
+(CAS) con más de 15 minutos de anticipación. No hay ninguna necesidad de
+ acudir con mayor anticipación ya que los solicitantes de visa serán 
+admitidos justo en el horario asignado de su cita.</p>
+<p>Los solicitantes menores de 7 años o mayores de 79 años deberán 
+proporcionar dos FOTOGRAFIAS a color, 5 cm x 5 cm, con el fondo en 
+blanco, la frente y los oídos completamente visibles, siguiendo los 
+estándares proporcionados por el Departamento de Estado: <a href="http://travel.state.gov/content/visas/en/general/photos/photo-composition-template.html" target="_blank">http://travel.state.gov/content/visas/en/general/photos/photo-composition-template.html</a>.</p>
+<p>Los niños menores de 7 años y los solicitantes mayores de 79 años NO 
+NECESITAN acudir en persona al Centro de Atención al Solicitante (CAS) 
+y/o a la Sección Consular a una cita. Los menores podrán ser 
+representados en la entrevista, por al menos uno de los padres, o el 
+tutor legal. En el caso de los solicitantes mayores de 79 años, podrán 
+ser representados por un familiar inmediato o por un tercero.</p>
+<br>
+<div class="row">
+<div class="twelve column noPadding">
+<div class="six column">
+<div>
+<strong>Fecha de la entrevista en el CAS:</strong>
+</div>
+25 enero, 2017, 10:40 CST
+<br>
+<div>
+<div>
+<strong>Ubicación del CAS:</strong>
+</div>
+<div class="addressContainer">
+<span></span>
+<div>Hamburgo # 213, PB Anexo</div>
+<div>Col. Juárez, Del. Cuauhtémoc</div>
+<div></div>
+<div>Mexico City, </div>
+<div></div>
+<div>06600</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p><div><h1>Documentos generales obligatorios – Para todos los tipos de Visas</h1> 
+
+<p>Los siguientes documentos son obligatorios para todos los tipos de Visas:</p> 
+
+<ol> 
+<li>Pasaporte válido para viajar a los Estados Unidos. La validez del 
+pasaporte debe superar al menos en seis meses el período de estadía en 
+los Estados Unidos (salvo que el solicitante esté exento en el marco de <a href="https://fam.state.gov/searchapps/viewer?format=html&amp;query=passport%20agreements&amp;links=PASSPORT,AGREEMENT&amp;url=/FAM/09FAM/09FAM040309.html#M403_9_3_B_2" target="_blank">acuerdos específicos para su país</a>).</li>
+<li>El pasaporte que contiene la visa emitida a los Estados Unidos más reciente (según sea su caso).</li>
+<li>Solicitud de Visa para no inmigrantes, página de confirmación del formulario DS-160.</li> 
+<li>Página de Impresión de Confirmación e Instrucciones desde esta página Web.</li> 
+<li>Los familiares acompañantes, salvo que entren en los Estados Unidos 
+con otra finalidad, deben presentar el original del certificado de 
+matrimonio (en el caso de cónyuges) y/o del certificado de nacimiento 
+(en el caso de hijos solteros menores de 21 años), según sea pertinente.
+ Muchos tipos de Visas requieren documentos adicionales. Por favor, 
+consulte la siguiente sección.</li> 
+</ol></div>
+<div><h2>(B) VISITANTE: NEGOCIOS, TURISMO, TRATAMIENTO MEDICO</h2> <ul> <li>No
+ se exigen documentos adicionales a menos que se pretenda recibir 
+tratamiento médico en los Estados Unidos. El Funcionario Consular podrá 
+solicitar los siguientes documentos en la entrevista de Visa:</li> <ul> <li>Diagnóstico
+ médico emitido por un médico local, en el que se explique la naturaleza
+ de la enfermedad y la razón por la que se necesita tratamiento en los 
+Estados Unidos.</li> <li>Carta de un médico o centro médico de los 
+Estados Unidos manifestando predisposición para tratar la enfermedad 
+diagnosticada, y detallando la duración y el costo estimado del 
+tratamiento (incluyendo honorarios médicos, costos de internamiento y 
+todos los gastos médicos).</li> <li>Constancia de que se pagarán todos 
+los gastos de transporte, médicos y sustento del paciente en los Estados
+ Unidos. Esta constancia podrá ser un estado de cuenta bancario o de 
+otra institución detallando rentas/ahorros o copias certificadas de las 
+declaraciones juradas del impuesto de la renta (ya fuera del paciente o 
+de la persona u organización que vaya a pagar el tratamiento).</li> </ul> </ul> 
+<p>Cuando se asiste a una entrevista consular en persona, le pueden ser 
+solicitados documentos adicionales para establecer si usted está 
+calificado para la visa.  Si usted califica para NO tener que asistir a 
+una entrevista consular en persona, envíe solamente los documentos 
+requeridos que específicamente se relacionan en la página de 
+instrucciones.</p>
+<p>Por ejemplo, documentos adicionales requeridos para una entrevista en persona puede incluir evidencia de:</p>
+<ul>
+<li>El propósito de su viaje</li>
+<li>Usted planea salir de los Estados Unidos después de su viaje; y/o</li>
+<li>Su solvencia para pagar todos los costos de su viaje. </li>
+<li>Evidencia de que su empleo y/o sus lazos familiares pueden ser 
+suficientes para comprobar el propósito de su viaje y de que es su 
+intención regresar a su país de origen. </li>
+<li>Si no puede cubrir todos los costos de su viaje, usted puede mostrar
+ evidencia de que otra persona cubrirá algunos o todos los costos de su 
+viaje.</li>
+</ul></div>
+<p></p>
+ 
+<p>
+</p><h1>Pago por la emisión de Visa (Cuota de&nbsp;reciprocidad)</h1><p>Dependiendo
+ del paí­s de ciudadaní­a del solicitante y del tipo de Visa, el 
+solicitante también podrá tener que pagar una cuota adicional por la 
+emisión de la Visa, conocido como cuota de reciprocidad. Puede encontrar
+ información detallada sobre las&nbsp;cuotas&nbsp;de reciprocidad en <a href="http://travel.state.gov/content/visas/english/fees/reciprocity-by-country.html" target="_blank">http://travel.state.gov/content/visas/english/fees/reciprocity-by-country.html</a></p>
+<p></p>
+<p>
+</p><h1>Retorno de Documentos</h1>
+<p>
+</p><div class="twelve column noPadding">
+<div class="three column noPadding">
+<strong>Tipo de Envío:</strong>
+</div>
+<div class="three column">
+Retiro de Documentos en Persona
+</div>
+<div class="six column"></div>
+</div>
+<p></p>
+<p>
+</p><div class="twelve column noPadding">
+<div class="three column noPadding">
+<strong>Domicilio de Envío:</strong>
+</div>
+<div class="three column">
+Av Insurgentes sur 585
+<br>
+Benito Juarez, DF, Napoles, 03810
+<br>
+Mexico
+
+</div>
+<div class="six column"></div>
+</div>
+<p></p>
+<p>
+Sólo podrá cambiar el lugar de entrega de la documentación hasta el 25 
+enero, 2017, 06:00 CST. Pasada esa fecha, se desactivará la opción de 
+cambio de lugar de entrega en su cuenta, por lo que no se podrán 
+realizar más cambios en el servicio de correo.
+</p>
+<p></p>
+</div>
+
+</div>
+</div>
+</div>
+<div class="row">
+<div class="twelve column alignTextRight">
+<div class="redSubmitNew">
+<a href="https://ais.usvisa-info.com/es-mx/niv/schedule/15992118">Cerrar</a>
+</div>
+</div>
+</div>
+
+<div class="user-info-footer">
+<div class="row">
+<div class="twelve column">
+<hr>
+<strong>Cuenta de usuario: </strong>
+DANIEL OCTAVIO RUIZ RODRIGUEZ, 
+daniel.ruiz.master@gmail.com, 
+<strong>Número de identificación de cuenta IVR: </strong>
+39563946
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div class="row">
+<div class="five columns">
+<p class="footerTitle">Visa para no inmigrantes</p>
+<ul>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/niv">Cómo solicitarla / Descripción general de la Visa</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/visa_categories">Categorías de Visas para no inmigrantes</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/fee">Costo&nbsp;de la Visa</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/visa_wait_times">Tiempos de espera para solicitar una Visa</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/required_docs">Documentación requerida</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/courier">Servicio de correo</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/groups">Empresas y otras organizaciones</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/consulate">Información de la Sección Consular</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/asc">Información del CAS</a></li>
+</ul>
+</div>
+<div class="four columns">
+<p class="footerTitle">Ayuda</p>
+<ul>
+<li><a href="https://ais.usvisa-info.com/es-mx/iv">Visas de Inmigrantes</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/special_visas">Visa especial (Diplomáticos,&nbsp;becarios, etc.)</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/faqs">Preguntas frecuentes</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/contact_us">Contáctenos</a></li>
+<li><a href="https://ais.usvisa-info.com/es-mx/niv/information/privacy_policy">Política de privacidad</a></li>
+</ul>
+</div>
+<div class="three columns">
+<p class="footerTitle"><a href="https://ais.usvisa-info.com/es-mx/niv/information/announcements">Anuncios</a></p>
+<ul class="news">
+<li>
+<h2>12 diciembre, 2016</h2>
+<p class="news">
+<a href="https://ais.usvisa-info.com/es-mx/niv/information/announcements#238-update_to_permissible_items_at_the_u_s_embassy_in_mexico_city_20161212210739">Artículos permitidos dentro de la Embajada de Estados Unidos en la Ciudad de México</a>
+</p>
+</li>
+<li>
+<h2>28 noviembre, 2016</h2>
+<p class="news">
+<a href="https://ais.usvisa-info.com/es-mx/niv/information/announcements#224-attention_chinese_citizens_with_10_year_b1_b2_or_b1_b2_visas_in_people_s_republic_of_china_passports_20161025131803">Attention: Chinese citizens with 10-year B1, B2 or B1/B2 visas in People's’ Republic of China passports</a>
+</p>
+</li>
+<li>
+<h2>18 agosto, 2016</h2>
+<p class="news">
+<a href="https://ais.usvisa-info.com/es-mx/niv/information/announcements#210-closure_of_two_applicant_service_centers_asc_20160818191922">Cierre de dos Centros de Atención a Solicitantes (CAS)</a>
+</p>
+</li>
+</ul>
+</div>
+<div class="footerDivider">
+<div class="five columns">
+<div class="footerCenter">
+<div class="countryContainer">
+<a href="https://ais.usvisa-info.com/?visa_type=niv">Cambiar país</a>
+</div>
+</div>
+</div>
+<div class="four columns">
+<div class="footerCenter">
+<label>Idioma</label>
+<select class="small" id="language_selector" name="language_selector"><option selected="selected" value="/es-mx/niv/schedule/15992118/appointment/instructions">Spanish</option>
+<option value="/en-mx/niv/schedule/15992118/appointment/instructions">English</option></select>
+</div>
+</div>
+<div class="three columns">
+<section class="switch-container">
+<div class="switch switch-niv">
+<input class="switch-input" id="visa_type_IV" name="visa_type" value="IV" type="radio">
+<a class="switch-label switch-label-on" data-confirm="No existe página equivalente para el modo seleccionado. Desea continuar?" href="https://ais.usvisa-info.com/es-mx/iv">IV</a>
+<input checked="checked" class="switch-input" id="visa_type_NIV" name="visa_type" value="NIV" type="radio">
+<a class="switch-label switch-label-on" data-confirm="Usted está a punto de cambiar al modo NIV." href="https://ais.usvisa-info.com/es-mx/niv/schedule/15992118/appointment/instructions">NIV</a>
+<span class="switch-selection"></span>
+</div>
+</section>
+
+</div>
+<div class="nine columns">
+<div class="footerLeft">
+Impulsado por Yatri - El Servicio Oficial del Sistema 
+de&nbsp;Información y Citas de Visas para la Embajada&nbsp;de los 
+Estados Unidos en&nbsp;Mexico
+<br>
+©
+Copyright 2013 CSRA
+</div>
+</div>
+<div class="three columns end">
+<a href="https://es-la.facebook.com/mexico.usembassy" target="_blank" class="facebook"><img src="instructions%20Archivos/iconFacebook.jpg"></a>
+<a href="https://twitter.com/USEmbassyMEX" target="_blank" class="twitter"><img src="instructions%20Archivos/iconTwitter.jpg"></a>
+<script src="instructions%20Archivos/seal.js"></script><img id="trustwaveSealImage" src="instructions%20Archivos/seal_image.png" style="cursor:pointer;" onclick="javascript:window.open('https://sealserver.trustwave.com/cert.php?customerId=650db360ce4f433099c92bb27f79d08f&amp;size=105x54&amp;style=invert', 'c_TW', 'location=no, toolbar=no, resizable=yes, scrollbars=yes, directories=no, status=no, width=615, height=720'); return false;" oncontextmenu="javascript:alert('Copying Prohibited by Law - Trusted Commerce is a Service Mark of TrustWave Holdings, Inc.'); return false;" alt="This site is protected by Trustwave's Trusted Commerce program" title="This site is protected by Trustwave's Trusted Commerce program" border="0">
+</div>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-76621744-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</div>
+</div>
+
+
+
+
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front no-close infoPopUp ui-dialog-buttons" style="height: auto; width: 500px; top: 252.997px; left: 424.5px; display: none;" tabindex="-1" role="dialog" aria-describedby="flash_messages" aria-labelledby="ui-id-1"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-1" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div class="infoPopUp ui-dialog-content ui-widget-content" id="flash_messages" style="width: auto; min-height: 37px; max-height: none; height: auto;">
+<div class="notice">
+La programación de su cita se ha realizado correctamente
+</div>
+</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">OK</span></button></div></div></div></body></html>

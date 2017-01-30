@@ -1,0 +1,17 @@
+﻿@model PhotoBook.Entities.Publisher
+
+@{
+    
+    ViewBag.Title = "PhotoBook of " + Model.Name;
+}
+<style>
+    h2{
+        text-align:center;
+    }
+
+</style>
+<h2 > @Model.Name</h2>
+
+<section id="imagesCatalogSection">
+    @Html.Action("GetCatalogImages", new { id = Model.PublisherId })
+</section>

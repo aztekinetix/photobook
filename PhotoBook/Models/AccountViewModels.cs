@@ -49,9 +49,9 @@ namespace PhotoBook.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Nickname")]
+        [MaxLength(15, ErrorMessage ="It can't be more than 15 chars long.")]
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,6 +64,12 @@ namespace PhotoBook.Models
 
     public class RegisterViewModel
     {
+        //Added by me in order to get more information about the user
+        [Required]
+        [StringLength(15, ErrorMessage = "It can't be more than 15 chars long")]
+        [Display(Name ="Nickname")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +85,10 @@ namespace PhotoBook.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+       
+
+
     }
 
     public class ResetPasswordViewModel

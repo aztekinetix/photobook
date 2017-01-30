@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PhotoBook.Entities.PublisherPic>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            #Id
+        </th>
+        <th>
+           Image
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    
+    <tr>
+        <td>
+            @item.PublisherPicId
+        </td>
+        <td>
+            <figure>
+                <img class="profileImageEdit" src="@System.Configuration.ConfigurationManager.AppSettings["PublishersCatalogsDirectory"]@item.PublisherId/@item.ImageUrl" id=@item.PublisherPicId />
+                <figcaption></figcaption>
+            </figure>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
+        </td>
+       
+        <td>
+            
+            @Html.ActionLink("Delete","Delete","PublisherPics", new { id=item.PublisherPicId },null)
+        </td>
+    </tr>
+}
+
+</table>

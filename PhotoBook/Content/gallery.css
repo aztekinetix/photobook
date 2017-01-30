@@ -1,25 +1,4 @@
-﻿html, body{
-margin:0;
-padding:30px;
-height:100%;
-background:url(images/fon.png);
-}
-
-.blog{
-position:absolute;
-top:5px;
-left:5px;
-width:150px;
-height:16px;
-font-family: "Trebuchet MS";
-font-size:14px;
-color:#333;
-display:inline-block;
-border:none;
-overflow:hidden;
-}
-
-:focus{
+﻿:focus{
 outline:none;
 }
 
@@ -31,7 +10,7 @@ position:relative;
 }
 
 
-a:not(#PhotobookHome){
+a:not(.PhotobookHome){
 display:inline-block;
 width:200px;
 height:141px;
@@ -40,6 +19,7 @@ border:5px solid #fff;
 -moz-box-sizing:border-box;
 -webkit-box-sizing:border-box;
 box-sizing:border-box;
+
 }
 
 a img{
@@ -60,7 +40,8 @@ top:0px;
 left:0px;
 cursor:pointer;
 -moz-user-select: none;
-user-select: none;    
+user-select: none;   
+
 }
 
 

@@ -5,14 +5,15 @@ namespace PhotoBook.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PhotoBook.DBContexts.PhotoBookContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PhotoBook.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "PhotoBook.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(PhotoBook.DBContexts.PhotoBookContext context)
+        protected override void Seed(PhotoBook.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -204,13 +204,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PublisherPicsController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="DBContexts\PhotoBookContext.cs" />
+    <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\PublisherPic.cs" />
     <Compile Include="Entities\Publisher.cs" />
@@ -223,6 +227,10 @@
     <Compile Include="Migrations\201701170130137_Initial.cs" />
     <Compile Include="Migrations\201701170130137_Initial.Designer.cs">
       <DependentUpon>201701170130137_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701170150042_InitialCreate.cs" />
+    <Compile Include="Migrations\201701170150042_InitialCreate.Designer.cs">
+      <DependentUpon>201701170150042_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201701171913459_AddedISActive.cs" />
     <Compile Include="Migrations\201701171913459_AddedISActive.Designer.cs">
@@ -260,7 +268,29 @@
     <Compile Include="Migrations\201701212143362_RemovingIndexToPublisherPicsforImageUrl.Designer.cs">
       <DependentUpon>201701212143362_RemovingIndexToPublisherPicsforImageUrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701252205375_AddingCommentsTable.cs" />
+    <Compile Include="Migrations\201701252205375_AddingCommentsTable.Designer.cs">
+      <DependentUpon>201701252205375_AddingCommentsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701252300386_help.cs" />
+    <Compile Include="Migrations\201701252300386_help.Designer.cs">
+      <DependentUpon>201701252300386_help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\IdentityContext\201701170150042_InitialCreate.cs" />
+    <Compile Include="Migrations\IdentityContext\201701170150042_InitialCreate.Designer.cs">
+      <DependentUpon>201701170150042_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\IdentityContext\201701252316108_Initial2.cs" />
+    <Compile Include="Migrations\IdentityContext\201701252316108_Initial2.Designer.cs">
+      <DependentUpon>201701252316108_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\IdentityContext\201701252328099_UsernameAdded.cs" />
+    <Compile Include="Migrations\IdentityContext\201701252328099_UsernameAdded.Designer.cs">
+      <DependentUpon>201701252328099_UsernameAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\IdentityContext\ConfigIdentity.cs" />
+    <Compile Include="Migrations\PhotoBookContext\ConfigPhoto.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -277,6 +307,7 @@
     <Content Include="Content\gallery.css" />
     <Content Include="Content\gallery2.css" />
     <Content Include="Content\Images\IntroImage.jpg" />
+    <Content Include="Content\gallery3.css" />
     <Content Include="Content\ThemeOriginal\bootstrap.css" />
     <Content Include="Content\ThemeOriginal\bootstrap.min.css" />
     <Content Include="Content\Theme1\bootstrap.css" />
@@ -319,6 +350,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="ReadMe.txt" />
+    <Content Include="IdentityManagerNotes.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -376,10 +408,18 @@
     <Content Include="Views\Publishers\Index.cshtml" />
     <Content Include="Views\Publishers\AddProfileImage.cshtml" />
     <Content Include="Views\Publishers\AddCatalogImages.cshtml" />
+    <Content Include="Views\Publishers\GetCatalogImages.cshtml" />
+    <Content Include="Views\Home\GetPublisherPublicProfile.cshtml" />
+    <Content Include="Views\Publishers\GetCatalogImagesAdmin.cshtml" />
+    <Content Include="Views\Home\GetCatalogImages.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_adminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\catalogs\5\" />
+    <Folder Include="Views\Comments\" />
+    <Folder Include="Views\PublisherPics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -390,6 +430,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701170130137_Initial.resx">
       <DependentUpon>201701170130137_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701170150042_InitialCreate.resx">
+      <DependentUpon>201701170150042_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701171913459_AddedISActive.resx">
       <DependentUpon>201701171913459_AddedISActive.cs</DependentUpon>
@@ -417,6 +460,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701212143362_RemovingIndexToPublisherPicsforImageUrl.resx">
       <DependentUpon>201701212143362_RemovingIndexToPublisherPicsforImageUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701252205375_AddingCommentsTable.resx">
+      <DependentUpon>201701252205375_AddingCommentsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701252300386_help.resx">
+      <DependentUpon>201701252300386_help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\IdentityContext\201701170150042_InitialCreate.resx">
+      <DependentUpon>201701170150042_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\IdentityContext\201701252316108_Initial2.resx">
+      <DependentUpon>201701252316108_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\IdentityContext\201701252328099_UsernameAdded.resx">
+      <DependentUpon>201701252328099_UsernameAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -15,14 +15,16 @@ using System.Text;
 
 namespace PhotoBook.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PublishersController : Controller
     {
         private PhotoBookContext db = new PhotoBookContext();
         private IImageStorage imageStorage; // will be injected by Ninject
-
+        
         public PublishersController(IImageStorage imgStorage)
         {
             this.imageStorage = imgStorage;
+            
         } 
 
         // GET: Publishers
@@ -163,6 +165,20 @@ namespace PhotoBook.Controllers
             return RedirectToAction("Edit", "Publishers", new {id=id});
            
         }
+       
+        [ChildActionOnly] 
+        public ActionResult GetCatalogImages(int id)
+        {
+            var publisherImagesList = db.PublisherPics.Where(x => x.PublisherId == id).OrderBy(x => x.UploadedOn).Include("Publisher");
+            if (User.IsInRole("Admin"))
+            {
+                return PartialView("GetCatalogImagesAdmin", publisherImagesList);
+            }
+            return PartialView(publisherImagesList);
+           
+        }
+
+      
 
         [HttpGet]
         public ActionResult AddCatalogImages(int id) {
@@ -216,8 +232,9 @@ namespace PhotoBook.Controllers
                     ModelState.AddModelError("Exceptions",sbUploadErrors.ToString());
                     return View(publisher);
                 }
-                return RedirectToAction("Edit", "Publishers", new { id = id });
-
+                ViewBag.Message = "Image Uploaded successfully";
+                // return RedirectToAction("AddCatalogImages", "Publishers", new { id = id });
+                return View(publisher);
             }
             else
             {
@@ -229,6 +246,27 @@ namespace PhotoBook.Controllers
             
         }
 
+
+        public ActionResult RemoveCatalogImage(int? picId) {
+
+            if (picId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PublisherPic publisherPic = db.PublisherPics.Find(picId);
+            if (publisherPic == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                db.PublisherPics.Remove(publisherPic);
+                db.SaveChanges();
+            }
+            ViewBag.Message = "Deleted successfully";
+            return RedirectToAction("AddCatalogImages", new { id = publisherPic.PublisherId });
+
+        }
 
         protected override void Dispose(bool disposing)
         {

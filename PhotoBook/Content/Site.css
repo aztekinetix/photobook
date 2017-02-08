@@ -2,7 +2,7 @@
 {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color:antiquewhite;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -50,4 +50,53 @@ textarea
     display: block;
     height: 141px;
     width: 200px;
+}
+
+.publicProfileImage
+
+{
+    display: block;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    height: 200px;
+    width: 240px;
+    float:left;
+    margin:10px;
+   border-radius:10px;
+}
+
+textarea{
+    width: 300px;
+}
+
+.Comment
+{
+    margin:5px;
+    
+}
+.dateData
+{
+    font-size: 0.6em;
+}
+
+#presentation{
+    display:block;
+    height: 260px;
+    /*padding:10px;*/
+    width:100%;
+    position:relative;
+}
+#presentation figure{
+   
+    top:0px;
+    left:0px;
+    float:left;
+    position:relative;
+}
+
+#presentation > div{
+    margin-left:300px;
+    margin-right:140px;
+    text-align:justify;
+
 }

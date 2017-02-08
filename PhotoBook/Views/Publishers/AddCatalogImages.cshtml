@@ -8,22 +8,25 @@
 <div class="text-info">@ViewBag.Message</div>
 <div>@Html.ValidationMessage("Exceptions", new { @class = "text-danger" })</div>
 <section>
-    <div class="col-md-offset-3 col-md-4">
-    @using (Html.BeginForm("AddCatalogImages", "Publishers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    <div class="col-md-4" style="display:inline">
+    @using (Html.BeginForm("AddCatalogImages", "Publishers", FormMethod.Post, new { enctype = "multipart/form-data", id="UploadForm" }))
     {
         @Html.HiddenFor(x => x.PublisherId)
+    <button class="btn btn-primary" style="float:right" onclick="ValidateUploadForm();">Upload</button>
         <div id="multiple">
-            <input type="file" class="multiple" name="files" multiple />
-            <button class="btn btn-default">Upload</button>
+            <input type="file" class="multiple filestyle" data-buttonName="btn-primary"  data-buttonText="Choose File(s)" name="files" id="files" multiple />
+            
         </div>
         <div id="single">
-            <input type="file" class="single" name="files" /><br />
-            <input type="file" class="single" name="files" /><br />
-            <input type="file" class="single" name="files" /><br />
-            <button class="btn btn-default">Upload</button>
+            <input type="file" class="single" name="files" id="files"/><br />
+            <input type="file" class="single" name="files" id="files"/><br />
+            <input type="file" class="single" name="files" id="files"/><br />
+            <button class="btn btn-primary" onclick="ValidateUploadForm();">Upload</button>
         </div>
         
     }</div>
+    <div>@Html.ActionLink("Go back", "Edit", new { id = Model.PublisherId }, htmlAttributes:new { @class = "btn btn-primary" })</div>
+
     
 </section>
 <section id="imagesCatalogSection">
@@ -32,7 +35,9 @@
     @Html.Action("GetCatalogImages", new { id = Model.PublisherId })
 
 </section>
+<div>@Html.ActionLink("Go back", "Edit", new { id = Model.PublisherId })</div>
 @section Scripts{
+<script src="~/Scripts/bootstrap-filestyle.min.js"></script>
     <script type="text/javascript">
         $(function ()
         {
@@ -46,5 +51,19 @@
                 $('.multiple').prop('disabled', true);
             }
         });
+
+        function ValidateUploadForm()
+        {
+            event.preventDefault();
+            if ($("#files").val() == "")
+            {
+                alert("Please select a valid jpeg or png file to upload");
+            }
+            else
+            {
+                
+                 $("#UploadForm").submit();
+            }
+        }
     </script>
 }

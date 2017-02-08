@@ -2,16 +2,95 @@
 
 @{
     
-    ViewBag.Title = "PhotoBook of " + Model.Name;
+    ViewBag.Title = "Photobook of " + Model.Name;
 }
+
+@section styles{
+<link href="~/Content/ekko-lightbox.css" rel="stylesheet" />
+    }
+@section scripts{
+<script src="~/Scripts/ekko-lightbox.js"></script>
+    <script>
+        
+
+       function ValidateCommentForm(){
+           event.preventDefault();
+           if ($("#CommentTextArea").val() == "")
+           {
+              
+               alert("Blank comments are not allowed ");
+              
+           }
+           else
+           {
+               $("#CommentForm").submit();
+           }
+       }
+
+       $(document).on('click', '[data-toggle="lightbox"]', function (event)
+       {
+           event.preventDefault();
+           $(this).ekkoLightbox({
+               
+           });
+       });
+    </script>
+    
+    }
 <style>
     h2{
         text-align:center;
     }
 
 </style>
-<h2 > @Model.Name</h2>
-
+<section id="presentation">
+    
+        <figure>
+            <img src="@System.Configuration.ConfigurationManager.AppSettings["PublishersImagesDirectory"]@Model.ProfileImageUrl" class="publicProfileImage">
+        </figure>
+        <h2>@Model.Name</h2>
+        <div>
+           @Model.DescriptionService 
+       
+           <h3>Price per hour: $@Model.PricePerService</h3> 
+        </div>
+    
+</section>
 <section id="imagesCatalogSection">
     @Html.Action("GetCatalogImages", new { id = Model.PublisherId })
+</section>
+<section id="comments">
+    @*The user will only provide comments when he is authenticated*@
+    @if (Request.IsAuthenticated)
+    {
+        @*Add comments form here*@
+        <div class="form-horizontal">
+            @using (Html.BeginForm("AddComment", "Comments", FormMethod.Post,new {id="CommentForm" }))
+            {
+                @Html.HiddenFor(x=>x.PublisherId);
+                
+                <div class="form-group">
+                   
+                    <div>
+                        Your comment: @Html.TextArea("CommentTextArea", new { rows = "3", maxlength = "140",@class="form-inline" })
+                         <button onclick="ValidateCommentForm()" class="btn btn-primary">Submit!</button>
+                       
+                    </div>
+                    
+                </div>
+                
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert-danger">In order to add comments please log on.</div>
+    }
+    @* Displaying the current comments for this publisher*@
+    <div>
+        @Html.Action("GetCommentsForPublisherId", "Comments", new { Publisherid = Model.PublisherId })
+
+    </div>
+
+
 </section>

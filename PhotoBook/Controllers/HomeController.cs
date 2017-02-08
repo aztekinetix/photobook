@@ -22,9 +22,6 @@ namespace PhotoBook.Controllers
         public ActionResult Catalog()
         {
             var AllPublishersActive = db.Publishers.Where(x=>x.IsActive==true).OrderBy(x => x.State.Name);
-
-            ViewBag.Message = "Your application description page.";
-
             return View(AllPublishersActive);
         }
 
@@ -52,9 +49,16 @@ namespace PhotoBook.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Ing. Daniel Ruiz";
 
             return View();
+        }
+
+        public ActionResult SearchPublisher(string SearchText)
+        {
+            var publisherList = db.Publishers.Where( x => x.Name.Contains(SearchText) && x.IsActive).OrderBy(x=>x.Name);
+
+            return View("Catalog",publisherList);
         }
     }
 }

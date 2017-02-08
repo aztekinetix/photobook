@@ -32,6 +32,10 @@ PM> Enable-Migrations -ContextTypeName PhotoBook.DBContexts.PhotoBookContext  -M
 PM>Enable-Migrations -ContextTypeName PhotoBook.Models.ApplicationDbContext  -MigrationsDirectory "Migrations\IdentityContext"
 PM>Add-migration -ConfigurationTypeName ConfigIdentity "Initial2"
 PM> Update-Database -ConfigurationTypeName ConfigIdentity
+Add-migration -ConfigurationTypeName ConfigPhoto "CommentsModified"
 
 -In the Startup.cs file, I have added a method called CreateRolesAndUsers. This will be used to create the Admin role and 
 the initial account to maintain the website.
+
+
+- Added LightBox to add effect to the image gallery

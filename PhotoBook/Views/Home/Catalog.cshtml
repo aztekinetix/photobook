@@ -3,24 +3,44 @@
     ViewBag.Title = "Catalog";
 }
 
+@section Scripts{
+    <script>
+        function validateSearchForm()
+        {
+            event.preventDefault();
+            if ($("#SearchText").val() == "")
+            {
+                
+                alert("Please review your search criteria");
+            }
+            else
+            {
+                $("#SearchForm").submit();
+            }
+        }
+
+    </script>
+
+    }
 <link href="~/Content/gallery2.css" rel="stylesheet" />
 
  
 <div class="container">
     <div class="row" style="padding:5px;">
         <div class="col">
-            <form>
-                Search:<input type="text" id="SearchText" size="30" />
-                <button class="btn-info"><span class="glyphicon glyphicon-search"></span></button>
-            </form>
+           @using(Html.BeginForm("SearchPublisher","Home",FormMethod.Post,new {id="SearchForm", name="SearchForm" })){
+            @Html.Label("Search:")  
+           @Html.TextBox("SearchText","");
+
+            <button class="btn-info" onclick="validateSearchForm();"><span class="glyphicon glyphicon-search"></span></button>
+            }
+               
         </div>
       
     </div>
 
 </div>
 <center><h2>Select a photographer to see their current work.</h2></center>
-
-
 
 
 <main class="gallery">

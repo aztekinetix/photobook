@@ -15,6 +15,7 @@ namespace PhotoBook.Entities
         [Required]
         public  string Name { get; set; }
         [Required]
+        [Display(Name="Personal ID number")]
         public  string IdNumber { get; set; }
         public  string IdImageUrl { get; set; }
         [Required]
@@ -24,13 +25,20 @@ namespace PhotoBook.Entities
         public  string Telephone { get; set; }
         [Required]
         public  string Email { get; set; }
+        [Display(Name = "Twitter")]
         public string TwitterAccount { get; set; }
+        [Display(Name = "Facebook")]
         public string Facebook { get; set; }
+        [Display(Name = "Profile Image Url")]
         public string ProfileImageUrl { get; set; }
+        [Display(Name = "Price per hour of service")]
         public decimal PricePerService { get; set; }
+        [Display(Name = "Description of the service")]
         public string DescriptionService { get; set; } //this is where people will add their texts
         public bool IsActive { get; set; }
+        [Display(Name = "State")]
         public int? StateId { get; set; }
+        [Display(Name = "Country")]
         public int? CountryId { get; set; }
 
         public ICollection<PublisherPic> PublisherPics { get; set; }

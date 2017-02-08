@@ -1,0 +1,161 @@
+CREATE TABLE [dbo].[AspNetRoles] (
+    [Id]   NVARCHAR (128) NOT NULL,
+    [Name] NVARCHAR (256) NOT NULL,
+    CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [RoleNameIndex]
+    ON [dbo].[AspNetRoles]([Name] ASC);
+
+
+CREATE TABLE [dbo].[AspNetUserClaims] (
+    [Id]         INT            IDENTITY (1, 1) NOT NULL,
+    [UserId]     NVARCHAR (128) NOT NULL,
+    [ClaimType]  NVARCHAR (MAX) NULL,
+    [ClaimValue] NVARCHAR (MAX) NULL,
+    CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_UserId]
+    ON [dbo].[AspNetUserClaims]([UserId] ASC);
+
+CREATE TABLE [dbo].[AspNetUserLogins] (
+    [LoginProvider] NVARCHAR (128) NOT NULL,
+    [ProviderKey]   NVARCHAR (128) NOT NULL,
+    [UserId]        NVARCHAR (128) NOT NULL,
+    CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED ([LoginProvider] ASC, [ProviderKey] ASC, [UserId] ASC),
+    CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_UserId]
+    ON [dbo].[AspNetUserLogins]([UserId] ASC);
+
+
+CREATE TABLE [dbo].[AspNetUserRoles] (
+    [UserId] NVARCHAR (128) NOT NULL,
+    [RoleId] NVARCHAR (128) NOT NULL,
+    CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
+    CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_UserId]
+    ON [dbo].[AspNetUserRoles]([UserId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_RoleId]
+    ON [dbo].[AspNetUserRoles]([RoleId] ASC);
+
+CREATE TABLE [dbo].[AspNetUsers] (
+    [Id]                   NVARCHAR (128) NOT NULL,
+    [Email]                NVARCHAR (256) NULL,
+    [EmailConfirmed]       BIT            NOT NULL,
+    [PasswordHash]         NVARCHAR (MAX) NULL,
+    [SecurityStamp]        NVARCHAR (MAX) NULL,
+    [PhoneNumber]          NVARCHAR (MAX) NULL,
+    [PhoneNumberConfirmed] BIT            NOT NULL,
+    [TwoFactorEnabled]     BIT            NOT NULL,
+    [LockoutEndDateUtc]    DATETIME       NULL,
+    [LockoutEnabled]       BIT            NOT NULL,
+    [AccessFailedCount]    INT            NOT NULL,
+    [UserName]             NVARCHAR (256) NOT NULL,
+    CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [UserNameIndex]
+    ON [dbo].[AspNetUsers]([UserName] ASC);
+
+
+CREATE TABLE [dbo].[Comments] (
+    [CommentId]         INT            IDENTITY (1, 1) NOT NULL,
+    [Text]              NVARCHAR (MAX) NULL,
+    [CreatedOn]         DATETIME       NULL,
+    [CreatedByUserName] NVARCHAR (MAX) NULL,
+    [ReplyToCommentId]  INT            NULL,
+    [PublisherId]       INT            NOT NULL,
+    CONSTRAINT [PK_dbo.Comments] PRIMARY KEY CLUSTERED ([CommentId] ASC)
+);
+
+
+CREATE TABLE [dbo].[Countries] (
+    [CountryId] INT            IDENTITY (1, 1) NOT NULL,
+    [Name]      NVARCHAR (MAX) NULL,
+    [isActive]  BIT            NOT NULL,
+    CONSTRAINT [PK_dbo.Countries] PRIMARY KEY CLUSTERED ([CountryId] ASC)
+);
+
+
+CREATE TABLE [dbo].[PublisherPics] (
+    [PublisherPicId]   INT            IDENTITY (1, 1) NOT NULL,
+    [ImageUrl]         NVARCHAR (MAX) NULL,
+    [UploadedOn]       DATETIME       NULL,
+    [UploadedByUserId] NVARCHAR (MAX) NULL,
+    [Order]            INT            NOT NULL,
+    [PublisherId]      INT            NOT NULL,
+    CONSTRAINT [PK_dbo.PublisherPics] PRIMARY KEY CLUSTERED ([PublisherPicId] ASC),
+    CONSTRAINT [FK_dbo.PublisherPics_dbo.Publishers_PublisherId] FOREIGN KEY ([PublisherId]) REFERENCES [dbo].[Publishers] ([PublisherId]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_PublisherId]
+    ON [dbo].[PublisherPics]([PublisherId] ASC);
+
+
+CREATE TABLE [dbo].[Publishers] (
+    [PublisherId]        INT             IDENTITY (1, 1) NOT NULL,
+    [Name]               NVARCHAR (MAX)  NOT NULL,
+    [IdNumber]           NVARCHAR (MAX)  NOT NULL,
+    [IdImageUrl]         NVARCHAR (MAX)  NULL,
+    [Address]            NVARCHAR (MAX)  NOT NULL,
+    [Telephone]          NVARCHAR (MAX)  NOT NULL,
+    [Email]              NVARCHAR (MAX)  NOT NULL,
+    [ProfileImageUrl]    NVARCHAR (MAX)  NULL,
+    [IsActive]           BIT             DEFAULT ((0)) NOT NULL,
+    [PricePerService]    DECIMAL (18, 2) DEFAULT ((0)) NOT NULL,
+    [DescriptionService] NVARCHAR (MAX)  NULL,
+    [CountryId]          INT             NULL,
+    [StateId]            INT             NULL,
+    [TwitterAccount]     NVARCHAR (MAX)  NULL,
+    [Facebook]           NVARCHAR (MAX)  NULL,
+    CONSTRAINT [PK_dbo.Publishers] PRIMARY KEY CLUSTERED ([PublisherId] ASC),
+    CONSTRAINT [FK_dbo.Publishers_dbo.Countries_Country_CountryId] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Countries] ([CountryId]),
+    CONSTRAINT [FK_dbo.Publishers_dbo.States_State_StateId] FOREIGN KEY ([StateId]) REFERENCES [dbo].[States] ([StateId])
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_CountryId]
+    ON [dbo].[Publishers]([CountryId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_StateId]
+    ON [dbo].[Publishers]([StateId] ASC);
+
+CREATE TABLE [dbo].[States] (
+    [StateId]   INT            IDENTITY (1, 1) NOT NULL,
+    [Name]      NVARCHAR (MAX) NULL,
+    [isActive]  BIT            NOT NULL,
+    [CountryId] INT            NOT NULL,
+    CONSTRAINT [PK_dbo.States] PRIMARY KEY CLUSTERED ([StateId] ASC),
+    CONSTRAINT [FK_dbo.States_dbo.Countries_CountryId] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Countries] ([CountryId]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_CountryId]
+    ON [dbo].[States]([CountryId] ASC);
+

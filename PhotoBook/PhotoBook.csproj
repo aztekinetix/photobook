@@ -48,8 +48,8 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
@@ -290,6 +290,10 @@
       <DependentUpon>201701252328099_UsernameAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\IdentityContext\ConfigIdentity.cs" />
+    <Compile Include="Migrations\PhotoBookContext\201701310102313_CommentsModified.cs" />
+    <Compile Include="Migrations\PhotoBookContext\201701310102313_CommentsModified.Designer.cs">
+      <DependentUpon>201701310102313_CommentsModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PhotoBookContext\ConfigPhoto.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -302,16 +306,21 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ekko-lightbox.css" />
+    <Content Include="Content\ekko-lightbox.min.css" />
     <Content Include="Content\gallery.css" />
     <Content Include="Content\gallery2.css" />
     <Content Include="Content\Images\IntroImage.jpg" />
     <Content Include="Content\gallery3.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Theme3\bootstrap.css" />
+    <Content Include="Content\Theme3\bootstrap.min.css" />
     <Content Include="Content\ThemeOriginal\bootstrap.css" />
     <Content Include="Content\ThemeOriginal\bootstrap.min.css" />
     <Content Include="Content\Theme1\bootstrap.css" />
     <Content Include="Content\Theme1\bootstrap.min.css" />
+    <Content Include="Content\thickboxCss\thickbox.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -331,9 +340,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap-filestyle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\ekko-lightbox.js" />
+    <Content Include="Scripts\ekko-lightbox.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -348,6 +361,8 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\thickbox\thickbox-compressed.js" />
+    <Content Include="Scripts\thickbox\thickbox.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="ReadMe.txt" />
     <Content Include="IdentityManagerNotes.txt" />
@@ -414,11 +429,12 @@
     <Content Include="Views\Home\GetCatalogImages.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\_adminLayout.cshtml" />
+    <Content Include="Views\Comments\GetCommentsForPublisherId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Theme2\" />
     <Folder Include="images\catalogs\5\" />
-    <Folder Include="Views\Comments\" />
     <Folder Include="Views\PublisherPics\" />
   </ItemGroup>
   <ItemGroup>
@@ -475,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\IdentityContext\201701252328099_UsernameAdded.resx">
       <DependentUpon>201701252328099_UsernameAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\PhotoBookContext\201701310102313_CommentsModified.resx">
+      <DependentUpon>201701310102313_CommentsModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9788,7 +9788,19 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
  * Load a url into a page
  */
 jQuery.fn.load = function( url, params, callback ) {
-	var selector, type, response,
+    if (!url.indexOf)
+    {
+        url.indexOf = function (obj, start)
+        {
+            for (var i = (start || 0), j = this.length; i < j; i++)
+            {
+                if (this[i] === obj) { return i; }
+            }
+            return -1;
+        }
+    }
+
+    var selector, type, response,
 		self = this,
 		off = url.indexOf( " " );
 

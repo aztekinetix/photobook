@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PhotoBook.Entities.Comment>
+@{ Layout = null;
+
+}
+
+
+
+@foreach (var item in Model) {
+    <div class="Comment">
+        <div>
+            @Html.DisplayFor(modelItem => item.CreatedByUserName) said: "@Html.DisplayFor(modelItem => item.Text)" <span class="dateData">on @Html.DisplayFor(modelItem => item.CreatedOn)</span> 
+
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete","Delete",new {id=item.CommentId, PublisherId=item.PublisherId },new {@class="PhotobookHome" })
+
+            }
+
+
+        </div>
+
+    </div>
+    
+}
+
+

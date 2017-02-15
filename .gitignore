@@ -242,5 +242,5 @@ ModelManifest.xml
 .fake/
 
 #Deployment folder
-Deployment/
-picturesToUse/
+**/Deployment/*
+**/picturesToUse/*

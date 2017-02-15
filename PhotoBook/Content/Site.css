@@ -50,6 +50,8 @@ textarea
     display: block;
     height: 141px;
     width: 200px;
+    position:relative;
+    float:left;
 }
 
 .publicProfileImage

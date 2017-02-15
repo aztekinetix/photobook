@@ -1,4 +1,12 @@
-﻿    <httpRuntime maxRequestLength="1048576" /> It was added to the web.config system.web 
+﻿  This is a demo app where the administrator can 
+        add photographers and their work to be displayed as a catalog of images.
+        This is a simple app where I am using Ninject to provide dependency injection, specifically for the
+        Image manager. It is using Entity Framework Code First approach and Identity Framework to authorize
+        and authenticate users. Also, the application creates the account and role of admin, once it is started.
+  
+  Below you can find more details about the work done:
+  
+    <httpRuntime maxRequestLength="1048576" /> It was added to the web.config system.web 
 	in order to accept multiple upload of photos
 
 	Keys were added to the web.config file to set the directories
